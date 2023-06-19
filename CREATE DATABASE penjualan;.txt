@@ -1,0 +1,23 @@
+CREATE DATABASE penjualan;
+
+
+CREATE TABLE produk (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(255) NOT NULL,
+    harga INT NOT NULL,
+    stok INT NOT NULL
+);
+
+CREATE TABLE penjualan (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tanggal DATE NOT NULL,
+    produk_id INT NOT NULL,
+    jumlah INT NOT NULL,
+    FOREIGN KEY (produk_id) REFERENCES produk(id)
+);
+
+
+ALTER TABLE penjualan
+DROP FOREIGN KEY penjualan_ibfk_1;
+
+
